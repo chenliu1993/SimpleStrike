@@ -19,7 +19,7 @@ func main() {
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
-	remote, err := net.Dial("tcp", fmt.Sprintf("%s:%d", *host, *remotePort))
+	remote, err := net.Dial("tcp", fmt.Sprintf("%s:%d", *Host, *remotePort))
 	if err != nil {
 		log.Fatal(err)
 		return
