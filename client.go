@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	host := flag.String("host", "127.0.0.1", "server addr")
+	Host := flag.String("host", utils.Host, "server addr")
 	remotePort := flag.Int("RemotePort", utils.RemotePort, "transfer server addr")
 	localPort := flag.Int("LocalPort", utils.LocalPort, "local server addr")
 	flag.Parse()
@@ -19,7 +19,7 @@ func main() {
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
-	remote, err := net.Dial("tcp", fmt.Sprintf("%s:%d", utils.Host, remotePort))
+	remote, err := net.Dial("tcp", fmt.Sprintf("%s:%d", *host, *remotePort))
 	if err != nil {
 		log.Fatal(err)
 		return
